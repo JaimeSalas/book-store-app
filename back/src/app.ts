@@ -23,7 +23,7 @@ restApiServer.use('/api/users', authenticationMiddleware, userApi);
 
 restApiServer.use(logErrorRequestMiddleware);
 
-restApiServer.listen('envConstants.PORT', async () => {
+restApiServer.listen(envConstants.PORT, async () => {
   if (!envConstants.isApiMock) {
     await connectToDBServer(envConstants.MONGODB_URI);
     console.log('Connected to DB');
