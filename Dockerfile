@@ -21,6 +21,7 @@ COPY --from=back-build /usr/app/dist ./
 COPY ./back/package*.json ./
 RUN npm ci --only=production
 
+ENV NODE_ENV=production
 ENV STATIC_FILES_PATH=./public
 ENV API_MOCK=false
 ENV CORS_ORIGIN=false
