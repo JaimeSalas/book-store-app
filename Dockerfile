@@ -21,10 +21,8 @@ COPY --from=back-build /usr/app/dist ./
 COPY ./back/package*.json ./
 RUN npm ci --only=production
 
-
-EXPOSE 3001
-ENV PORT=3001
 ENV STATIC_FILES_PATH=./public
-ENV API_MOCK=true
+ENV API_MOCK=false
+ENV CORS_ORIGIN=false
 
 ENTRYPOINT [ "node", "index" ]
